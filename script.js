@@ -10,8 +10,8 @@ import {
   startOfMonth,
   startOfWeek,
   subMonths,
-} from "date-fns";
-import format from "date-fns/format";
+} from "/node_modules/date-fns/index.js";
+import format from "/node_modules/date-fns/format/index.js";
 
 const datePickerBtn = document.querySelector(".date-picker-button");
 const datePicker = document.querySelector(".date-picker");
@@ -43,7 +43,6 @@ function setupDates(selectedDate) {
   let firstWeekStart = startOfWeek(startOfMonth(currentDate));
   let lastWeekEnd = endOfWeek(endOfMonth(currentDate));
   dateGrid.innerHTML = "";
-  console.log(dateGrid.innerHTML);
 
   let dates = eachDayOfInterval({ start: firstWeekStart, end: lastWeekEnd });
   dates.forEach((d) => {
@@ -54,7 +53,6 @@ function setupDates(selectedDate) {
       dateCell.classList.add("date-picker-other-month-date");
     }
     if (isSameDay(d, selectedDate)) {
-      console.log("issamedayyyy");
       dateCell.classList.add("selected");
     }
     dateCell.addEventListener("click", () => {
